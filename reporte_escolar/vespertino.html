@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes Escolares | Turno Vespertino</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- MENÚ PRINCIPAL -->
+  <nav class="menu-principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="matutino.html">Turno matutino</a></li>
+      <li><a href="vespertino.html" class="activo">Turno vespertino</a></li>
+    </ul>
+  </nav>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado">
+    <div class="logo-area">
+      <img src="assets/img/logo.jpeg"
+           alt="Logo del CETIS 141"
+           class="logo">
+    </div>
+
+    <p class="subtitulo">SISTEMA DE REPORTES ESCOLARES</p>
+    <h1>Turno vespertino</h1>
+    <p class="intro">
+      Selecciona tu carrera para realizar un reporte escolar.
+    </p>
+  </header>
+
+  <!-- CARRERAS -->
+  <main class="contenedor-principal">
+    <h2 class="titulo-seccion">Selecciona tu carrera</h2>
+
+    <section class="rejilla-carreras">
+
+      <article class="tarjeta-carrera">
+        <div class="icono">💻</div>
+        <h3>Programación</h3>
+        <p>Reportes relacionados con la carrera de Programación.</p>
+        <button class="boton-enlace"
+                onclick="seleccionarCarrera('Programación')">
+          Seleccionar carrera
+        </button>
+      </article>
+
+      <article class="tarjeta-carrera">
+        <div class="icono">⚙️</div>
+        <h3>SyMEC</h3>
+        <p>Reportes relacionados con la carrera de SyMEC.</p>
+        <button class="boton-enlace"
+                onclick="seleccionarCarrera('SyMEC')">
+          Seleccionar carrera
+        </button>
+      </article>
+
+      <article class="tarjeta-carrera">
+        <div class="icono">🍽️</div>
+        <h3>Preparación de Alimentos y Bebidas</h3>
+        <p>Reportes relacionados con esta especialidad.</p>
+        <button class="boton-enlace"
+                onclick="seleccionarCarrera('Preparación de Alimentos y Bebidas')">
+          Seleccionar carrera
+        </button>
+      </article>
+
+      <article class="tarjeta-carrera">
+        <div class="icono">🌎</div>
+        <h3>Gestión e Innovación Turística</h3>
+        <p>Reportes relacionados con la carrera de Turismo.</p>
+        <button class="boton-enlace"
+                onclick="seleccionarCarrera('Gestión e Innovación Turística')">
+          Seleccionar carrera
+        </button>
+      </article>
+
+      <article class="tarjeta-carrera">
+        <div class="icono">🔧</div>
+        <h3>Mecánica</h3>
+        <p>Reportes relacionados con la carrera de Mecánica.</p>
+        <button class="boton-enlace"
+                onclick="seleccionarCarrera('Mecánica')">
+          Seleccionar carrera
+        </button>
+      </article>
+
+      <article class="tarjeta-carrera">
+        <div class="icono">🔋</div>
+        <h3>Electromovilidad</h3>
+        <p>Reportes relacionados con la carrera de Electromovilidad.</p>
+        <button class="boton-enlace"
+                onclick="seleccionarCarrera('Electromovilidad')">
+          Seleccionar carrera
+        </button>
+      </article>
+
+    </section>
+
+    <!-- FORMULARIO DE REPORTE -->
+    <section class="panel-reporte" id="formulario">
+      <h2 class="panel-titulo">Formulario de reporte</h2>
+
+      <form class="formulario-reporte" id="formReporte">
+
+        <div class="campo campo-completo">
+          <label for="carrera">Carrera seleccionada:</label>
+          <input type="text" id="carrera" name="carrera"
+                 placeholder="Selecciona una carrera arriba" readonly required>
+        </div>
+
+        <div class="campo">
+          <label for="semestre">Semestre:</label>
+          <select id="semestre" name="semestre" required>
+            <option value="">Selecciona tu semestre</option>
+            <option value="1">1.º semestre</option>
+            <option value="2">2.º semestre</option>
+            <option value="3">3.º semestre</option>
+            <option value="4">4.º semestre</option>
+            <option value="5">5.º semestre</option>
+            <option value="6">6.º semestre</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="grupo">Grupo:</label>
+          <input type="text" id="grupo" name="grupo"
+                 placeholder="Ej. A, B o C" required>
+        </div>
+
+        <div class="campo">
+          <label for="tipo">Tipo de reporte:</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecciona el tipo</option>
+            <option value="Académico">Académico</option>
+            <option value="Instalaciones">Instalaciones</option>
+            <option value="Material o equipo">Material o equipo</option>
+            <option value="Convivencia escolar">Convivencia escolar</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="fecha">Fecha del incidente:</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <div class="campo campo-completo">
+          <label for="descripcion">Descripción del reporte:</label>
+          <textarea id="descripcion" name="descripcion"
+                    rows="5"
+                    placeholder="Describe lo sucedido y dónde ocurrió..."
+                    required></textarea>
+        </div>
+
+        <div class="acciones">
+          <button type="submit" class="boton-enviar">
+            Enviar reporte
+          </button>
+          <button type="reset" class="boton-secundario">
+            Limpiar formulario
+          </button>
+        </div>
+
+      </form>
+
+      <div class="resultado" id="resultado" hidden></div>
+
+      <p class="aviso">
+        Este formulario es una demostración escolar. Los reportes no se
+        guardan ni se envían a la institución automáticamente.
+      </p>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer-cetis" id="contacto">
+    <div class="footer-contenido">
+      <h2>CETIS No. 141 “Dr. Manuel Gamio”</h2>
+
+      <p class="footer-nombre">
+        Centro de Estudios Tecnológicos Industrial y de Servicios No. 141
+      </p>
+
+      <p>
+        <i class="fa-solid fa-location-dot"></i>
+        Av. Jiménez Cantú, Col. Acatitla, C.P. 55800,
+        San Juan Teotihuacán, Estado de México.
+      </p>
+
+      <p>
+        <i class="fa-solid fa-phone"></i>
+        Teléfono: 594 956 8086
+      </p>
+
+      <div class="footer-botones">
+        <a href="https://www.facebook.com/"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-red facebook">Facebook</a>
+
+        <a href="https://www.instagram.com/"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-red instagram">Instagram</a>
+
+        <a href="tel:+525949568086"
+           class="btn-red contacto">Número de contacto</a>
+      </div>
+
+      <p class="footer-copy">Sistema de Reportes Escolares</p>
+      <small>CETIS N.º 141 · Submódulo 1: Construye Aplicaciones Web</small>
+    </div>
+  </footer>
+
+  <script>
+    function seleccionarCarrera(nombre) {
+      document.getElementById("carrera").value = nombre;
+
+      document.getElementById("formulario").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    document.getElementById("formReporte").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const resultado = document.getElementById("resultado");
+      resultado.hidden = false;
+      resultado.textContent =
+        "Reporte preparado correctamente. Recuerda que esta versión de demostración no lo envía ni lo guarda.";
+    });
+  </script>
+
+</body>
+</html>
+```

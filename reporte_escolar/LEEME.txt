@@ -1,0 +1,12 @@
+SISTEMA DE REPORTES ESCOLARES - CETIS 141
+
+Archivos:
+- index.html: página principal para elegir turno.
+- matutino.html: formulario independiente del turno matutino.
+- vespertino.html: formulario independiente del turno vespertino.
+- styles.css: diseño compartido.
+- assets/img/logo.png: coloca aquí el logo de la escuela.
+
+Abre index.html en tu navegador y elige el turno. En cada página puedes volver al inicio
+o cambiar al otro turno desde el menú superior. Los grupos son ejemplos editables.
+El formulario muestra una vista previa; para guardar reportes se requiere una base de datos.

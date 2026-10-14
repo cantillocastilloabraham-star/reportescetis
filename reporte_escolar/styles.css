@@ -1,0 +1,653 @@
+
+/* CONFIGURACIÓN GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background-color: #FAF5F7;
+  color: #333333;
+}
+
+/* MENÚ PRINCIPAL */
+.menu-principal {
+  background-color: #4A001F;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.menu-principal ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.menu-principal a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 9px 16px;
+  border-radius: 4px;
+  transition: background-color .2s;
+}
+
+.menu-principal a:hover,
+.menu-principal a.activo {
+  background-color: #800020;
+}
+
+/* ENCABEZADO */
+.encabezado {
+  text-align: center;
+  padding: 38px 20px 44px;
+  background: linear-gradient(180deg, #F0DCE3, #FAF5F7);
+}
+
+/* ENCABEZADO INSTITUCIONAL CENTRADO */
+.encabezado-institucional {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 35px 20px 44px;
+  text-align: center;
+}
+
+/* CONTENEDOR DE LOS DOS LOGOS */
+.logos-institucionales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+/* AMBOS LOGOS CON EL MISMO TAMAÑO */
+.logos-institucionales .logo {
+  display: block;
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+/* COMPATIBILIDAD CON OTROS LOGOS */
+.logo-area {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 136px;
+  height: 112px;
+  margin: 0 auto 18px;
+}
+
+.logo {
+  display: block;
+  max-width: 136px;
+  max-height: 112px;
+  object-fit: contain;
+}
+
+.logo-respaldo {
+  display: none;
+  place-items: center;
+  width: 112px;
+  height: 96px;
+  border: 2px dashed #800020;
+  border-radius: 8px;
+  color: #4A001F;
+  font-size: .8rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* TEXTO DEL ENCABEZADO */
+.texto-encabezado {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.subtitulo {
+  color: #800020;
+  font-size: .78rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.encabezado h1 {
+  color: #4A001F;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  margin-bottom: 12px;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+
+.intro,
+.descripcion {
+  color: #705B64;
+  line-height: 1.6;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-principal {
+  width: min(1100px, calc(100% - 36px));
+  margin: 32px auto 50px;
+}
+
+/* TÍTULOS DE SECCIÓN */
+.titulo-seccion {
+  text-align: center;
+  color: #4A001F;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.descripcion {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* TARJETAS DE CARRERAS */
+.rejilla-carreras {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tarjeta-carrera {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 205px;
+  padding: 25px 18px;
+  border: 1px solid #E5CCD5;
+  border-radius: 9px;
+  background: #FFFFFF;
+  color: #333333;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(74, 0, 31, .05);
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+
+.tarjeta-carrera:hover {
+  transform: translateY(-3px);
+  border-color: #800020;
+  box-shadow: 0 7px 18px rgba(74, 0, 31, .12);
+}
+
+.tarjeta-carrera.seleccionada {
+  border: 2px solid #800020;
+  background: #F7E8ED;
+  box-shadow: 0 0 0 3px rgba(128, 0, 32, .12);
+}
+
+.numero {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  color: #A88B97;
+  font-size: .78rem;
+  font-weight: bold;
+}
+
+/* ICONOS DE CARRERAS */
+.icono {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #F0DCE3;
+  color: #4A001F;
+  font-size: 1.6rem;
+}
+
+.tarjeta-carrera strong {
+  color: #800020;
+  font-size: 1.08rem;
+}
+
+.tarjeta-carrera small {
+  color: #705B64;
+  line-height: 1.45;
+}
+
+/* PANEL DEL REPORTE */
+.panel-reporte {
+  margin-top: 52px;
+  padding: 30px;
+  background: #FFFFFF;
+  border: 1px solid #E5CCD5;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(74, 0, 31, .06);
+  scroll-margin-top: 85px;
+}
+
+.panel-titulo {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.etiqueta {
+  display: inline-block;
+  color: #800020;
+  font-size: .75rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.panel-titulo h2 {
+  color: #4A001F;
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.panel-titulo p {
+  color: #705B64;
+}
+
+/* FORMULARIO */
+.formulario-reporte {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  color: #4A2635;
+  font-size: .92rem;
+  font-weight: bold;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #D8C1CA;
+  border-radius: 5px;
+  background: #FFFFFF;
+  color: #333333;
+  font-size: 1rem;
+  outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: #800020;
+  box-shadow: 0 0 0 3px rgba(128, 0, 32, .12);
+}
+
+.campo input[readonly] {
+  background: #FAF5F7;
+  color: #4A001F;
+  font-weight: bold;
+}
+
+.campo textarea {
+  resize: vertical;
+}
+
+.campo-completo {
+  grid-column: 1 / -1;
+}
+
+/* BOTONES DEL FORMULARIO */
+.acciones {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.boton-enviar,
+.boton-secundario {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+
+.boton-enviar {
+  background: #800020;
+  color: #FFFFFF;
+}
+
+.boton-enviar:hover {
+  background: #4A001F;
+}
+
+.boton-secundario {
+  background: #F0DCE3;
+  color: #4A001F;
+}
+
+.boton-secundario:hover {
+  background: #E5CCD5;
+}
+
+/* AVISO DEL FORMULARIO */
+.aviso {
+  color: #806D76;
+  font-size: .82rem;
+  line-height: 1.5;
+}
+
+/* RESULTADO DEL REPORTE */
+.resultado {
+  margin-top: 25px;
+  padding: 22px;
+  border-left: 4px solid #800020;
+  border-radius: 5px;
+  background: #FAF0F3;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.resultado h3 {
+  color: #4A001F;
+  margin: 5px 0 12px;
+}
+
+.resultado .aviso {
+  margin-top: 12px;
+}
+
+/* TARJETAS DE SELECCIÓN DE TURNO */
+.rejilla-turnos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.tarjeta-turno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 26px;
+  background: #FFFFFF;
+  border: 1px solid #E5CCD5;
+  border-radius: 9px;
+  box-shadow: 0 4px 14px rgba(74, 0, 31, .07);
+}
+
+.turno-icono {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: #F0DCE3;
+  color: #4A001F;
+  font-size: 2.2rem;
+}
+
+.turno-etiqueta {
+  margin-bottom: 8px;
+  color: #800020;
+  font-size: .75rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.tarjeta-turno h2 {
+  margin-bottom: 12px;
+  color: #4A001F;
+}
+
+.tarjeta-turno p:not(.turno-etiqueta) {
+  color: #705B64;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.tarjeta-turno .boton-enlace {
+  margin-top: auto;
+}
+
+.boton-enlace {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background: #800020;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color .2s;
+}
+
+.boton-enlace:hover {
+  background: #4A001F;
+}
+
+.nota-inicio {
+  max-width: 760px;
+  margin: 25px auto 0;
+  color: #705B64;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ==============================
+   FOOTER INSTITUCIONAL CETIS 141
+============================== */
+
+footer {
+  text-align: center;
+  padding: 22px 16px;
+  background-color: #F0DCE3;
+  color: #705B64;
+  margin-top: 35px;
+  font-size: .9rem;
+  line-height: 1.8;
+}
+
+/* Footer específico de información institucional */
+.footer-cetis {
+  background-color: #4A001F;
+  color: #FFFFFF;
+  padding: 35px 20px 20px;
+  text-align: center;
+}
+
+.footer-contenido {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-cetis h2 {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer-cetis p {
+  color: #FFFFFF;
+  font-weight: normal;
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+.footer-cetis p i {
+  margin-right: 7px;
+}
+
+.footer-nombre {
+  margin-bottom: 18px !important;
+}
+
+.footer-botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+/* Estilos compartidos por los tres botones */
+.btn-red {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  min-width: 175px;
+  padding: 12px 18px;
+  border-radius: 7px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform .2s, opacity .2s;
+}
+
+.btn-red:hover {
+  transform: translateY(-3px);
+  opacity: .88;
+}
+
+/* Facebook */
+.facebook {
+  background-color: #1877F2;
+}
+
+/* Instagram */
+.instagram {
+  background-color: #C13584;
+}
+
+/* Contacto telefónico */
+.contacto {
+  background-color: #267A4B;
+}
+
+.footer-cetis .footer-copy {
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  padding-top: 15px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.footer-cetis small {
+  color: #E5D7DD;
+  font-size: .8rem;
+}
+
+/* TABLETAS */
+@media (max-width: 800px) {
+  .rejilla-carreras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* CELULARES */
+@media (max-width: 560px) {
+  .menu-principal ul {
+    gap: 8px;
+  }
+
+  .menu-principal a {
+    padding: 8px 10px;
+    font-size: .9rem;
+  }
+
+  .encabezado-institucional {
+    padding: 25px 15px 30px;
+    gap: 16px;
+  }
+
+  .logos-institucionales {
+    gap: 15px;
+  }
+
+  .logos-institucionales .logo {
+    width: 95px;
+    height: 95px;
+    max-width: 95px;
+    max-height: 95px;
+  }
+
+  .texto-encabezado h1 {
+    font-size: 1.7rem;
+  }
+
+  .rejilla-carreras {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario-reporte {
+    grid-template-columns: 1fr;
+  }
+
+  .campo-completo {
+    grid-column: auto;
+  }
+
+  .panel-reporte {
+    padding: 22px 16px;
+  }
+
+  .acciones {
+    flex-direction: column;
+  }
+
+  .acciones button {
+    width: 100%;
+  }
+
+  .rejilla-turnos {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-cetis {
+    padding: 30px 15px 20px;
+  }
+
+  .footer-cetis h2 {
+    font-size: 1.3rem;
+  }
+
+  .footer-botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-red {
+    width: 230px;
+  }
+}
